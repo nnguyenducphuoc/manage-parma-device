@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supermarket Inventory</title>
+    <link rel="stylesheet" href="../css/updateAccount.css" />
+    <style>
+    .hinh_tron {
+        background-size: cover;
+        border-radius: 50%;
+      }
+
+      .filter-bar .add {
+        background-color: rgb(104, 231, 104);
+      }
+      .key {
+        background-color: rgb(104, 231, 104);
+      }
+      </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo">
+          <img class="hinh_tron" src="../img/logo.png" alt="Supermarket Logo" />
+          <h2>Bệnh viện Hải Châu</h2>
+        </div>
+        <nav>
+          <ul>
+            <li>
+                <a class="key" href="../qtv/updateAccount.html"
+                  ><i class="fa-solid fa-address-book"></i> Quản lý tài khoản</a
+                >
+              </li>
+            <li>
+              <a href="../qtv/updateRole.html"><i class="fa-solid fa-sliders"></i> Cập nhật chức vụ</a>
+            </li>
+            <li>
+              <a href="../qtv/updateDepartment.html"
+                ><i class="fa-solid fa-user-group"></i> Cập nhật khoa</a
+              >
+            </li>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <header>
+          <div class="search-container">
+            <input type="text" placeholder="Tìm kiếm..." />
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="user-actions">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+            </button>
+            <button class="user-btn"><i class="fas fa-user-circle"></i></button>
+          </div>
+        </header>
+        <div class="inventory-section">
+          <h1>Tài khoản</h1>
+          <div class="filter-bar">
+            <button>Giám đốc bệnh viện</button>
+            <button>Quản lý kho</button>
+            <button>Nhân viên</button>
+            <button>Trưởng khoa</button>
+            <button class="add" onclick="openAddModal()">Thêm</button>
+          </div>
+          <table>
+            <thead>
+                <tr>
+                    <th>Mã ND</th>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Ngày Sinh</th>
+                    <th>CCCD</th>
+                    <th>Địa Chỉ</th>
+                    <th>Trạng Thái</th>
+                    <th>Chức Vụ</th>
+                    <th>Khoa</th>
+                    <th></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Mai Quốc Khánh</td>
+                    <td>maiquockhanh@gmail.com</td>
+                    <td>01/01/1990</td>
+                    <td>123456789012</td>
+                    <td>123 Bình Định</td>
+                    <td>Hoạt động</td>
+                    <td>Giám đốc bệnh viện</td>
+                    <td></td>
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Trần Văn Mỹ</td>
+                    <td>tranvanmy@gmail.com</td>
+                    <td>04/01/1930</td>
+                    <td>423467890125</td>
+                    <td>456 Quảng Nam</td>
+                    <td>Hoạt động</td>
+                    <td>Quản lý kho</td>
+                    <td></td>
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>Lê Đình Hoàng</td>
+                    <td>ledinhhoang@gmail.com</td>
+                    <td>04/01/1995</td>
+                    <td>532453901222</td>
+                    <td>789 Gia Lai</td>
+                    <td>Hoạt động</td>
+                    <td>Nhân viên</td>
+                    <td></td>
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                </tr>
+                <tr>
+                    <td>004</td>
+                    <td>Hồ Văn Qúy</td>
+                    <td>hovanquy@gmail.com</td>
+                    <td>01/03/1890</td>
+                    <td>123423423112</td>
+                    <td>431 Hải Phòng</td>
+                    <td>Hoạt động</td>
+                    <td>Trưởng khoa</td>
+                    <td>Tâm thần</td>
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                </tr>
+                <tr>
+                    <td>005</td>
+                    <td>Lưu Gia Huy</td>
+                    <td>luugiahuy@gmail.com</td>
+                    <td>01/01/1990</td>
+                    <td>142342341213</td>
+                    <td>532 Vũng Tàu</td>
+                    <td>Hoạt động</td>
+                    <td>Trưởng khoa</td>
+                    <td>Nhi</td>
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                </tr>
+                <tr>
+                    <td>006</td>
+                    <td>Hoàng Thị Luyến</td>
+                    <td>hoangthiluyen@example.com</td>
+                    <td>03/01/1970</td>
+                    <td>123324324324</td>
+                    <td>560</td>
+                    <td>Hoạt động</td>
+                    <td>Trưởng khoa</td>
+                    <td>Tim mạch</td>
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                </tr>
+                <tr>
+                    <td>007</td>
+                    <td>Nguyễn Văn Hà</td>
+                    <td>nguyenvanha@gmail.com</td>
+                    <td>05/01/1995</td>
+                    <td>123434234423</td>
+                    <td>324 Phú Quốc</td>
+                    <td>Không hoạt động</td>
+                    <td>Nhân viên</td>
+                    <td></td>
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                </tr>
+                <tr>
+                    <td>008</td>
+                    <td>Dương Công Minh</td>
+                    <td>duongcongminh@gmail.com</td>
+                    <td>05/04/1999</td>
+                    <td>123439782344</td>
+                    <td>365 Quảng Ngãi</td>
+                    <td>Không hoạt động</td>
+                    <td>Nhân viên</td>
+                    <td></td>
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                </tr>
+                <tr>
+                    <td>009</td>
+                    <td>Nguyễn Công Toàn</td>
+                    <td>nguyencongtoan@gmail.com</td>
+                    <td>01/12/1996</td>
+                    <td>123312331202</td>
+                    <td>5435 Quảng Bình</td>
+                    <td>Không hoạt động</td>
+                    <td>Nhân viên</td>
+                    <td></td>
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                </tr>
+                <tr>
+                    <td>010</td>
+                    <td>Lưu Văn Tâm</td>
+                    <td>luuvantam@example.com</td>
+                    <td>01/01/2000</td>
+                    <td>122423256786</td>
+                    <td>122 Hà Nội</td>
+                    <td>Hoạt động</td>
+                    <td>Trưởng khoa</td>
+                    <td>Da liễu</td>
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+          <div class="pagination">
+            <button>&laquo;</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>&raquo;</button>
+          </div>
+        </div>
+        <div class="modal" id="updateModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal12()">&times;</span>
+                <h2>Cập nhật người dùng</h2>
+                <form>
+                    <label for="trangThai">Trạng Thái:</label>
+                    <select id="trangThai">
+                        <option value="Active">Hoạt động</option>
+                        <option value="Inactive">Không hoạt động</option>
+                    </select>
+    
+                    <label for="maChucVu">Chức Vụ:</label>
+                    <select id="maChucVu">
+                        <option value="CV001">Giám đốc bệnh viện</option>
+                        <option value="CV002">Quản lý kho</option>
+                        <option value="CV002">Nhân viên</option>
+                        <option value="CV002">Trưởng khoa</option>
+                        <!-- Add more options as needed -->
+                    </select>
+    
+                    <button type="button" onclick="updateUser12()">Cập nhật</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="modal" id="addModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('addModal')">&times;</span>
+                <h2>Thêm người dùng</h2>
+                <form id="addForm">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+
+                    <label for="matKhau">Mật Khẩu:</label>
+                    <input type="password" id="matKhau" name="matKhau">
+    
+                    <label for="trangThai">Trạng Thái:</label>
+                    <select id="trangThai">
+                        <option value="Active">Hoạt động</option>
+                        <option value="Inactive">Không hoạt động</option>
+                    </select>
+    
+                    <label for="maChucVu">Chức Vụ:</label>
+                    <select id="maChucVu">
+                        <option value="CV001">Giám đốc bệnh viện</option>
+                        <option value="CV002">Quản lý kho</option>
+                        <option value="CV002">Nhân viên</option>
+                        <option value="CV002">Trưởng khoa</option>
+                        <!-- Add more options as needed -->
+                    </select>
+    
+                    <button type="button" onclick="addUser()">Thêm</button>
+                </form>
+            </div>
+        </div>
+      </main>
+      <script src="../js/updateAccount.js"></script>
+      <script src="../js/updateAccount2.js"></script>
+    </div>
+  </body>
+</html>

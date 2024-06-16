@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supermarket Inventory</title>
+    <link rel="stylesheet" href="../css/updateAccount.css" />
+    <style>
+
+.detail-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.detail-button:hover {
+    background-color: #0056b3;
+}
+
+.container1 {
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    font-size: 14px;
+}
+
+
+    .hinh_tron {
+        background-size: cover;
+        border-radius: 50%;
+      }
+
+      .filter-bar .add {
+        background-color: rgb(104, 231, 104);
+      }
+      .key {
+        background-color: rgb(104, 231, 104);
+      }
+      </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo">
+          <img class="hinh_tron" src="../img/logo.png" alt="Supermarket Logo" />
+          <h2>Bệnh viện Hải Châu</h2>
+        </div>
+        <nav>
+          <ul>
+            <li>
+                <a  href="../gdbv/viewDeviceInformation.html"
+                  ><i class="fa-solid fa-address-book"></i> Xem thông tin thiết bị</a
+                >
+              </li>
+            
+            <li>
+              <a class="key" href="../gdbv/approveDeviceSupplyRequest.html"
+                ><i class="fa-solid fa-user-group"></i> Duyệt yêu cầu cung cấp thiết bị</a
+              >
+            </li>
+            <li>
+                <a href="../gdbv/approveDeviceImportRequest.html"
+                  ><i class="fa-solid fa-house"></i> Duyệt yêu cầu nhập thiết bị</a
+                >
+              </li>
+              <li>
+                <a href="../gdbv/updateInformation.html"><i class="fa-solid fa-sliders"></i> Cập nhật thông tin tài khoản</a>
+              </li>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <header>
+          <div class="search-container">
+            <input type="text" placeholder="Tìm kiếm..." />
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="user-actions">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+            </button>
+            <button class="user-btn"><i class="fas fa-user-circle"></i></button>
+          </div>
+        </header>
+        <div class="inventory-section">
+          <h1>Danh sách phiếu yêu cầu cung cấp thiết bị</h1>
+          <table id="requestTable">
+            <thead>
+                <tr>
+                    <th>Mã phiếu</th>
+                    <th>Khoa</th>
+                    <th>Người tạo</th>
+                    <th>Ngày tạo</th>
+                    <th>Trạng thái</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+        
+          <div class="pagination">
+            <button>&laquo;</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>&raquo;</button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="detailsModalLabel">Yêu Cầu Nhập Thiết Bị</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <div class="form-group">
+                          <label for="maPhieuNhap">Mã phiếu nhập:</label>
+                          <input type="text" class="form-control" id="maPhieuNhap" readonly>
+                      </div>
+                      <div class="form-group">
+                          <label for="nguoiThucHien">Người thực hiện:</label>
+                          <input type="text" class="form-control" id="nguoiThucHien" readonly>
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <label for="maThietBi">Mã thiết bị:</label>
+                              <input type="text" class="form-control" id="maThietBi" readonly>
+                          </div>
+                          <div class="form-group col-md-6">
+                              <label for="tenThietBi">Tên thiết bị:</label>
+                              <input type="text" class="form-control" id="tenThietBi" readonly>
+                          </div>
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <label for="loaiThietBi">Loại thiết bị:</label>
+                              <select class="form-control" id="loaiThietBi" readonly>
+                                  <option>A</option>
+                                  <option>B</option>
+                              </select>
+                          </div>
+                          <div class="form-group col-md-3">
+                              <label for="soLuongYeuCau">Số lượng yêu cầu:</label>
+                              <input type="number" class="form-control" id="soLuongYeuCau" readonly>
+                          </div>
+                          <div class="form-group col-md-3">
+                              <label for="soLuongDuyet">Số lượng duyệt:</label>
+                              <input type="number" class="form-control" id="soLuongDuyet" readonly>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="lyDo">Lý do:</label>
+                          <textarea class="form-control" id="lyDo" rows="2" readonly></textarea>
+                      </div>
+                  </form>
+                  <table class="table table-striped mt-3">
+                      <thead>
+                          <tr>
+                              <th>STT</th>
+                              <th>Mã thiết bị</th>
+                              <th>Tên thiết bị</th>
+                              <th>Loại thiết bị</th>
+                              <th>Số lượng yêu cầu</th>
+                              <th>Số lượng duyệt</th>
+                              <th>Lý do</th>
+                          </tr>
+                      </thead>
+                      <tbody id="detailsContent">
+                          <!-- Detailed information will be inserted here -->
+                      </tbody>
+                  </table>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Từ chối</button>
+                  <button type="button" class="btn btn-success">Duyệt</button>
+              </div>
+          </div>
+      </div>
+  </div>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script src="../js/getListSupplyRequest.js"></script>
+    </div>
+  </body>
+</html>

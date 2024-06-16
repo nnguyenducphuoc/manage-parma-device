@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supermarket Inventory</title>
+    <link rel="stylesheet" href="../css/updateAccount.css" />
+    <style>
+      
+.pagination button {
+    color: #f58c8c;
+}
+.container1 {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    border: 2px solid #007bff;
+}
+
+.header {
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-row .form-group:last-child {
+    margin-right: 0;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.device-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.device-image img {
+    width: 150px;
+    height: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead {
+    background-color: #007bff;
+    color: #d79797;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: rgb(224, 130, 130);
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-image {
+    width: 50px;
+    height: auto;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.reject-btn {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.approve-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reject-btn:hover {
+    background-color: #c82333;
+}
+
+.approve-btn:hover {
+    background-color: #218838;
+}
+
+    .hinh_tron {
+        background-size: cover;
+        border-radius: 50%;
+      }
+
+      .filter-bar .add {
+        background-color: rgb(104, 231, 104);
+      }
+      .key {
+        background-color: rgb(104, 231, 104);
+      }
+      </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo">
+          <img class="hinh_tron" src="../img/logo.png" alt="Supermarket Logo" />
+          <h2>Bệnh viện Hải Châu</h2>
+        </div>
+        <nav>
+          <ul>
+            <li>
+                <a  href="../gdbv/viewDeviceInformation.html"
+                  ><i class="fa-solid fa-address-book"></i> Xem thông tin thiết bị</a
+                >
+              </li>
+            
+            <li>
+              <a href="../gdbv/approveDeviceSupplyRequest.html"
+                ><i class="fa-solid fa-user-group"></i> Duyệt yêu cầu cung cấp thiết bị</a
+              >
+            </li>
+            <li>
+                <a class="key" href="../gdbv/approveDeviceImportRequest.html"
+                  ><i class="fa-solid fa-house"></i> Duyệt yêu cầu nhập thiết bị</a
+                >
+              </li>
+              <li>
+                <a href="../gdbv/updateInformation.html"><i class="fa-solid fa-sliders"></i> Cập nhật thông tin tài khoản</a>
+              </li>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <header>
+          <div class="search-container">
+            <input type="text" placeholder="Tìm kiếm..." />
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="user-actions">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+            </button>
+            <button class="user-btn"><i class="fas fa-user-circle"></i></button>
+          </div>
+        </header>
+        <div class="inventory-section">
+            <div class="container1">
+                <div class="header">
+                    <span>Ngày tạo phiếu: 05/10/2024</span>
+                </div>
+                <h1>YÊU CẦU NHẬP THIẾT BỊ</h1>
+                <div class="form-group">
+                    <label for="request-id">Mã phiếu nhập:</label>
+                    <input type="text" id="request-id" value="PN004" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="requestor">Người thực hiện:</label>
+                    <input type="text" id="requestor" value="Nguyễn Văn Chương" disabled>
+                </div>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="device-id">Mã thiết bị:</label>
+                            <input type="text" id="device-id" value="TB003" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="device-name">Tên thiết bị:</label>
+                            <input type="text" id="device-name" value="Máy thở Auto CPAP Resmed Airsense 10 Autoset">
+                        </div>
+                        <div class="form-group">
+                            <label for="device-type">Loại thiết bị:</label>
+                            <select id="device-type">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reason">Lý do:</label>
+                            <textarea id="reason">Số lượng trong kho đã hết</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity-requested">Số lượng yêu cầu:</label>
+                            <input type="number" id="quantity-requested" value="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity-approved">Số lượng duyệt:</label>
+                            <input type="number" id="quantity-approved" value="2">
+                        </div>
+                    </div>                
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã thiết bị</th>
+                                <th>Tên thiết bị</th>
+                                <th>Loại thiết bị</th>
+                                <th>Số lượng yêu cầu</th>
+                                <th>Số lượng duyệt</th>
+                                <th>Lý do</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>TB003</td>
+                                <td>Máy thở Auto CPAP Resmed Airsense 10 Autoset</td>
+                                <td>A</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>Số lượng trong kho đã hết</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>TB002</td>
+                                <td>Máy điện não EEG Neurovax 34</td>
+                                <td>B</td>
+                                <td>8</td>
+                                <td>5</td>
+                                <td></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <button>&laquo;</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>&raquo;</button>
+                      </div>
+                    <div class="form-actions">
+                        <button type="button" class="reject-btn">TỪ CHỐI</button>
+                        <button type="submit" class="approve-btn">DUYỆT</button>
+                    </div>
+                </form>
+            </div>
+          
+        </div>
+        <div class="modal" id="updateModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal12()">&times;</span>
+                <h2>Cập nhật người dùng</h2>
+                <form>
+                    <label for="trangThai">Trạng Thái:</label>
+                    <select id="trangThai">
+                        <option value="Active">Hoạt động</option>
+                        <option value="Inactive">Không hoạt động</option>
+                    </select>
+    
+                    <label for="maChucVu">Chức Vụ:</label>
+                    <select id="maChucVu">
+                        <option value="CV001">Giám đốc bệnh viện</option>
+                        <option value="CV002">Quản lý kho</option>
+                        <option value="CV002">Nhân viên</option>
+                        <option value="CV002">Trưởng khoa</option>
+                        <!-- Add more options as needed -->
+                    </select>
+    
+                    <button type="button" onclick="updateUser12()">Cập nhật</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="modal" id="addModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('addModal')">&times;</span>
+                <h2>Thêm người dùng</h2>
+                <form id="addForm">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+
+                    <label for="matKhau">Mật Khẩu:</label>
+                    <input type="password" id="matKhau" name="matKhau">
+    
+                    <label for="trangThai">Trạng Thái:</label>
+                    <select id="trangThai">
+                        <option value="Active">Hoạt động</option>
+                        <option value="Inactive">Không hoạt động</option>
+                    </select>
+    
+                    <label for="maChucVu">Chức Vụ:</label>
+                    <select id="maChucVu">
+                        <option value="CV001">Giám đốc bệnh viện</option>
+                        <option value="CV002">Quản lý kho</option>
+                        <option value="CV002">Nhân viên</option>
+                        <option value="CV002">Trưởng khoa</option>
+                        <!-- Add more options as needed -->
+                    </select>
+    
+                    <button type="button" onclick="addUser()">Thêm</button>
+                </form>
+            </div>
+        </div>
+      </main>
+      <script src="../js/updateAccount.js"></script>
+      <script src="../js/updateAccount2.js"></script>
+    </div>
+  </body>
+</html>

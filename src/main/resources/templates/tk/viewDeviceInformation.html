@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supermarket Inventory</title>
+    <link rel="stylesheet" href="../css/updateAccount.css" />
+    <style>
+    .hinh_tron {
+        background-size: cover;
+        border-radius: 50%;
+      }
+
+      .filter-bar .add {
+        background-color: rgb(104, 231, 104);
+      }
+      .key {
+        background-color: rgb(104, 231, 104);
+      }
+      </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo">
+          <img class="hinh_tron" src="../img/logo.png" alt="Supermarket Logo" />
+          <h2>Bệnh viện Hải Châu</h2>
+        </div>
+        <nav>
+          <ul>
+            <li>
+                <a class="key" href="../tk/viewDeviceInformation.html"
+                  ><i class="fa-solid fa-address-book"></i> Xem thông tin thiết bị</a
+                >
+              </li>
+            
+            <li>
+              <a href="../tk/requestImportDevice.html"
+                ><i class="fa-solid fa-user-group"></i> Yêu cầu nhập thiết bị</a
+              >
+            </li>
+            <li>
+                <a href="../tk/updateDeviceCategory.html"
+                  ><i class="fa-solid fa-house"></i> Cập nhật danh mục thiết bị</a
+                >
+              </li>
+              <li>
+                <a href="../tk/updateInformation.html"><i class="fa-solid fa-sliders"></i> Cập nhật thông tin tài khoản</a>
+              </li>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <header>
+          <div class="search-container">
+            <input type="text" placeholder="Tìm kiếm..." />
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="user-actions">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+            </button>
+            <button class="user-btn"><i class="fas fa-user-circle"></i></button>
+          </div>
+        </header>
+        <div class="inventory-section">
+          <h1>Thông tin thiết bị</h1>
+          <div class="filter-bar">
+            <button>Thiết bị điều trị</button>
+            <button>Thiết bị chẩn đoán</button>
+            <button>Thiết bị phẫu thuật</button>
+            <button>Thiết bị hỗ trợ</button>    
+            <button>Thiết bị theo dõi sức khỏe</button>           
+
+          </div>
+          <table>
+            <thead>
+                <tr>
+                    <th>Mã TB</th>
+                    <th>Tên thiết bị</th>
+                    <th>Số lượng</th>
+                    <th>Xuất xứ</th>
+                    <th>Nhà cung cấp</th>
+                    <th>Mã danh mục</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TB001</td>
+                    <td>Máy X-quang</td>
+                    <td>5</td>
+                    <td>Nhật Bản</td>
+                    <td>Công ty ABC</td>
+                    <td>Thiết bị chẩn đoán</td>
+                </tr>
+                <tr>
+                    <td>TB002</td>
+                    <td>Máy siêu âm</td>
+                    <td>3</td>
+                    <td>Hàn Quốc</td>
+                    <td>Công ty DEF</td>
+                    <td>Thiết bị điều trị</td>
+                </tr>
+                <tr>
+                    <td>TB003</td>
+                    <td>Máy điện tim</td>
+                    <td>4</td>
+                    <td>Đức</td>
+                    <td>Công ty GHI</td>
+                    <td>Thiết bị phẫu thuật</td>
+                </tr>
+                <tr>
+                    <td>TB004</td>
+                    <td>Máy đo huyết áp</td>
+                    <td>10</td>
+                    <td>Mỹ</td>
+                    <td>Công ty JKL</td>
+                    <td>Thiết bị hỗ trợ</td>
+                </tr>
+                <tr>
+                    <td>TB005</td>
+                    <td>Máy thở</td>
+                    <td>7</td>
+                    <td>Trung Quốc</td>
+                    <td>Công ty MNO</td>
+                    <td>Thiết bị hỗ trợ</td>
+                </tr>
+                <tr>
+                    <td>TB006</td>
+                    <td>Máy lọc máu</td>
+                    <td>2</td>
+                    <td>Pháp</td>
+                    <td>Công ty PQR</td>
+                    <td>Thiết bị hỗ trợ</td>
+                </tr>
+                <tr>
+                    <td>TB007</td>
+                    <td>Máy đo đường huyết</td>
+                    <td>15</td>
+                    <td>Thụy Sĩ</td>
+                    <td>Công ty STU</td>
+                    <td>Thiết bị theo dõi sức khỏe</td>
+                </tr>
+                <tr>
+                    <td>TB008</td>
+                    <td>Máy hút dịch</td>
+                    <td>8</td>
+                    <td>Ý</td>
+                    <td>Công ty VWX</td>
+                    <td>Thiết bị theo dõi sức khỏe</td>
+                </tr>
+                <tr>
+                    <td>TB009</td>
+                    <td>Máy chụp CT</td>
+                    <td>1</td>
+                    <td>Canada</td>
+                    <td>Công ty YZ</td>
+                    <td>Thiết bị điều trị</td>
+                </tr>
+                <tr>
+                    <td>TB010</td>
+                    <td>Máy MRI</td>
+                    <td>2</td>
+                    <td>Thụy Điển</td>
+                    <td>Công ty ABC</td>
+                    <td>Thiết bị điều trị</td>
+                </tr>
+            </tbody>
+        </table>
+          <div class="pagination">
+            <button>&laquo;</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>&raquo;</button>
+          </div>
+        </div>
+        <div class="modal" id="updateModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal12()">&times;</span>
+                <h2>Cập nhật người dùng</h2>
+                <form>
+                    <label for="trangThai">Trạng Thái:</label>
+                    <select id="trangThai">
+                        <option value="Active">Hoạt động</option>
+                        <option value="Inactive">Không hoạt động</option>
+                    </select>
+    
+                    <label for="maChucVu">Chức Vụ:</label>
+                    <select id="maChucVu">
+                        <option value="CV001">Giám đốc bệnh viện</option>
+                        <option value="CV002">Quản lý kho</option>
+                        <option value="CV002">Nhân viên</option>
+                        <option value="CV002">Trưởng khoa</option>
+                        <!-- Add more options as needed -->
+                    </select>
+    
+                    <button type="button" onclick="updateUser12()">Cập nhật</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="modal" id="addModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('addModal')">&times;</span>
+                <h2>Thêm người dùng</h2>
+                <form id="addForm">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+
+                    <label for="matKhau">Mật Khẩu:</label>
+                    <input type="password" id="matKhau" name="matKhau">
+    
+                    <label for="trangThai">Trạng Thái:</label>
+                    <select id="trangThai">
+                        <option value="Active">Hoạt động</option>
+                        <option value="Inactive">Không hoạt động</option>
+                    </select>
+    
+                    <label for="maChucVu">Chức Vụ:</label>
+                    <select id="maChucVu">
+                        <option value="CV001">Giám đốc bệnh viện</option>
+                        <option value="CV002">Quản lý kho</option>
+                        <option value="CV002">Nhân viên</option>
+                        <option value="CV002">Trưởng khoa</option>
+                        <!-- Add more options as needed -->
+                    </select>
+    
+                    <button type="button" onclick="addUser()">Thêm</button>
+                </form>
+            </div>
+        </div>
+      </main>
+      <script src="../js/updateAccount.js"></script>
+      <script src="../js/updateAccount2.js"></script>
+    </div>
+  </body>
+</html>

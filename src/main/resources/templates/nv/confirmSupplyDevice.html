@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supermarket Inventory</title>
+    <link rel="stylesheet" href="../css/updateAccount.css" />
+    <style>
+        .detail-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.detail-button:hover {
+    background-color: #0056b3;
+}
+
+.container1 {
+    width: 90%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #0052cc;
+}
+
+p {
+    margin: 0;
+    padding: 10px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-confirm {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.device-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.device-table th, .device-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.device-table th {
+    background-color: #f2f2f2;
+}
+
+.device-image {
+    width: 50px;
+    height: auto;
+}
+
+.pagination {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-btn {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.page-btn:hover {
+    background-color: #ddd;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-reject, .btn-confirm {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-reject {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.btn-confirm {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+
+.update-container {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    border: 2px solid #007bff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input:disabled {
+    background-color: #f1f1f1;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+.update-btn:hover {
+    background-color: #218838;
+}
+    .hinh_tron {
+        background-size: cover;
+        border-radius: 50%;
+      }
+
+      .filter-bar .add {
+        background-color: rgb(104, 231, 104);
+      }
+      .key {
+        background-color: rgb(104, 231, 104);
+      }
+      </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo">
+          <img class="hinh_tron" src="../img/logo.png" alt="Supermarket Logo" />
+          <h2>Bệnh viện Hải Châu</h2>
+        </div>
+        <nav>
+          <ul>
+        
+            
+            <li>
+              <a href="../nv/confirmImportedDevice.html"
+                ><i class="fa-solid fa-user-group"></i> Xác nhận đã nhập thiết bị</a
+              >
+            </li>
+            <li>
+                <a class="key" href="../nv/confirmSupplyDevice.html"
+                  ><i class="fa-solid fa-house"></i> Xác nhận đã cung cấp thiết bị</a
+                >
+              </li>
+              <li>
+                <a  href="../nv/updateInformation.html"><i class="fa-solid fa-sliders"></i> Cập nhật thông tin tài khoản</a>
+              </li>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <header>
+          <div class="search-container">
+            <input type="text" placeholder="Tìm kiếm..." />
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="user-actions">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+            </button>
+            <button class="user-btn"><i class="fas fa-user-circle"></i></button>
+          </div>
+        </header>
+        <div class="inventory-section">
+            <h1>Danh sách phiếu yêu cầu cung cấp thiết bị</h1>
+            <table id="requestTable">
+              <thead>
+                  <tr>
+                      <th>Mã phiếu</th>
+                      <th>Khoa</th>
+                      <th>Người tạo</th>
+                      <th>Ngày tạo</th>
+                      <th>Trạng thái</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody id="tableBody">
+              </tbody>
+          </table>
+        </div>
+
+      </main>
+      <script src="../js/getListSupplyDevice.js"></script>
+      <script src="../js/updateAccount.js"></script>
+      <script src="../js/updateAccount2.js"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supermarket Inventory</title>
+    <link rel="stylesheet" href="../css/updateAccount.css" />
+    <style>
+    .hinh_tron {
+        background-size: cover;
+        border-radius: 50%;
+      }
+
+      .key {
+        background-color: rgb(104, 231, 104);
+      }
+      .filter-bar .add {
+        background-color: rgb(104, 231, 104);
+      }
+      </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo">
+          <img class="hinh_tron" src="../img/logo.png" alt="Supermarket Logo" />
+          <h2>Bệnh viện Hải Châu</h2>
+        </div>
+        <nav>
+          <ul>
+            <li>
+                <a  href="../qtv/updateAccount.html"
+                  ><i class="fa-solid fa-address-book"></i> Quản lý tài khoản</a
+                >
+              </li>
+            <li>
+              <a class="key" href="../qtv/updateRole.html"><i class="fa-solid fa-sliders"></i> Cập nhật chức vụ</a>
+            </li>
+            <li>
+              <a href="../qtv/updateDepartment.html"
+                ><i class="fa-solid fa-user-group"></i> Cập nhật khoa</a
+              >
+            </li>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <header>
+          <div class="search-container">
+            <input type="text" placeholder="Tìm kiếm..." />
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="user-actions">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+            </button>
+            <button class="user-btn"><i class="fas fa-user-circle"></i></button>
+          </div>
+        </header>
+        <div class="inventory-section">
+          <h1>Danh sách chức vụ</h1>
+          <div class="filter-bar">
+            <button class="add" onclick="openAddModal()">Thêm</button>
+          </div>
+          <table>
+            <thead>
+                <tr>
+                    <th>Mã Chức Vụ</th>
+                    <th>Tên Chức Vụ</th> 
+                    <th></th>    
+                    <th></th>          
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Giám đốc bệnh viện</td>              
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                    <td><button class="delete-btn" onclick="">Xóa</button></td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Quản lý kho</td>                  
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                    <td><button class="delete-btn" onclick="">Xóa</button></td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>Nhân viên</td>                   
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                    <td><button class="delete-btn" onclick="">Xóa</button></td>
+                </tr>
+                <tr>
+                    <td>004</td>
+                    <td>Trưởng khoa</td>                   
+                    <td><button class="update-btn" onclick="openModal12()">Cập nhật</button></td>
+                    <td><button class="delete-btn" onclick="">Xóa</button></td>
+                </tr>
+                
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>         
+        </div>
+        <div class="modal" id="updateModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal12()">&times;</span>
+                <h2>Cập nhật chức vụ</h2>
+                <form>
+                    <label for="maChucVu">Tên chức Vụ:</label>
+                    <input type="text">
+                    <br></br>
+                    <button type="button" onclick="updateUser12()">Cập nhật</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="modal" id="addModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('addModal')">&times;</span>
+                <h2>Thêm chức vụ</h2>
+                <form id="addForm">
+                  <label for="maChucVu">Tên chức Vụ:</label>
+                  <input type="text">
+                  <br></br>
+                    <button type="button" onclick="addUser()">Thêm</button>
+                </form>
+            </div>
+        </div>
+      </main>
+      <script src="../js/updateAccount.js"></script>
+      <script src="../js/updateAccount2.js"></script>
+    </div>
+  </body>
+</html>
+

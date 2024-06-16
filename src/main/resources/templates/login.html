@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập - Quản lý Thiết bị Vật tư Y tế Bệnh viện Hải Châu</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background: linear-gradient(to right, #5ca3fe, #5cdb95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: #fff;
+      }
+      .login-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        text-align: center;
+      }
+      h3 {
+        color: #2a3a8a; /* Đổi màu chữ của tiêu đề h2 thành màu đỏ */
+      }
+      h2 {
+        color: #000000; /* Đổi màu chữ của tiêu đề h2 thành màu đỏ */
+      }
+      .hinh_tron {
+        width: 190px;
+        height: 200px;
+        background-size: cover;
+        border-radius: 50%;
+      }
+      .login-container header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .login-container header img {
+        max-width: 80px;
+        max-height: 80px;
+        width: auto;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      .login-container header h1 {
+        margin: 0;
+        font-size: 22px;
+        color: #333;
+      }
+      .login-container input[type="text"],
+      .login-container input[type="password"] {
+        width: calc(100% - 20px);
+        padding: 15px 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+      .login-container button {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(to right, #5ca3fe, #5cdb95);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background 0.3s ease-in-out;
+      }
+      .login-container button:hover {
+        background: linear-gradient(to right, #5cdb95, #5ca3fe);
+      }
+      .login-container .footer {
+        margin-top: 20px;
+      }
+      .login-container .footer a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      .login-container .footer a:hover {
+        text-decoration: underline;
+      }
+      .login-container .social-login {
+        margin: 20px 0;
+      }
+      .login-container .social-login button {
+        width: calc(50% - 10px);
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .login-container .social-login .facebook {
+        background-color: #3b5998;
+        color: white;
+      }
+      .login-container .social-login .google {
+        background-color: #db4a39;
+        color: white;
+      }
+      .login-container .social-login button:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <header>
+        <img
+          class="hinh_tron"
+          src="../img/logo.png"
+          alt="Logo Bệnh viện Hải Châu"
+        />
+        <h1>Bệnh viện Hải Châu</h1>
+        <h1>QUẢN LÝ THIẾT BỊ Y TẾ</h1>
+      </header>
+      <h3>Đăng nhập</h3>
+      <form action="login_process.php" method="POST">
+        <input
+          type="text"
+          name="username"
+          placeholder="Tên đăng nhập"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Mật khẩu"
+          required
+        />
+        <button type="submit">Đăng nhập</button>
+      </form>
+    </div>
+  </body>
+</html>

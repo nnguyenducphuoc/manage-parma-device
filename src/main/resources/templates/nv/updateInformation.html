@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supermarket Inventory</title>
+    <link rel="stylesheet" href="../css/updateAccount.css" />
+    <style>
+        
+
+.update-container {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    border: 2px solid #007bff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input:disabled {
+    background-color: #f1f1f1;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+.update-btn:hover {
+    background-color: #218838;
+}
+    .hinh_tron {
+        background-size: cover;
+        border-radius: 50%;
+      }
+
+      .filter-bar .add {
+        background-color: rgb(104, 231, 104);
+      }
+      .key {
+        background-color: rgb(104, 231, 104);
+      }
+      </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo">
+          <img class="hinh_tron" src="../img/logo.png" alt="Supermarket Logo" />
+          <h2>Bệnh viện Hải Châu</h2>
+        </div>
+        <nav>
+          <ul>
+        
+            
+            <li>
+              <a href="../nv/confirmImportedDevice.html"
+                ><i class="fa-solid fa-user-group"></i> Xác nhận đã nhập thiết bị</a
+              >
+            </li>
+            <li>
+                <a href="../nv/confirmSupplyDevice.html"
+                  ><i class="fa-solid fa-house"></i> Xác nhận đã cung cấp thiết bị</a
+                >
+              </li>
+              <li>
+                <a class="key" href="../nv/updateInformation.html"><i class="fa-solid fa-sliders"></i> Cập nhật thông tin tài khoản</a>
+              </li>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <header>
+          <div class="search-container">
+            <input type="text" placeholder="Tìm kiếm..." />
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="user-actions">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+            </button>
+            <button class="user-btn"><i class="fas fa-user-circle"></i></button>
+          </div>
+        </header>
+        <div class="inventory-section">
+          <div class="update-container">
+            <h1>CẬP NHẬT THÔNG TIN TÀI KHOẢN</h1>
+            <form>
+                <div class="form-group">
+                    <label for="user-id">Mã người dùng</label>
+                    <input type="text" id="user-id" value="003" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="role">Chức vụ</label>
+                    <input type="text" id="role" value="Nhân viên kho" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="user-name">Tên người dùng</label>
+                    <input type="text" id="user-name" value="Nguyễn Hoàng Long">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" value="***************">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="nguyenhoanglong@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="cccd">CCCD</label>
+                    <input type="text" id="cccd" value="24142342794">
+                </div>
+                <div class="form-group">
+                    <label for="dob">Ngày sinh</label>
+                    <input type="date" id="dob" value="1990-09-03">
+                </div>
+                <div class="form-group">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" id="address" value="Hải Châu - Đà Nẵng">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">HỦY</button>
+                    <button type="submit" class="update-btn">CẬP NHẬT</button>
+                </div>
+            </form>
+        </div>
+        </div>
+        <div class="modal" id="updateModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal12()">&times;</span>
+                <h2>Cập nhật người dùng</h2>
+                <form>
+                    <label for="trangThai">Trạng Thái:</label>
+                    <select id="trangThai">
+                        <option value="Active">Hoạt động</option>
+                        <option value="Inactive">Không hoạt động</option>
+                    </select>
+    
+                    <label for="maChucVu">Chức Vụ:</label>
+                    <select id="maChucVu">
+                        <option value="CV001">Giám đốc bệnh viện</option>
+                        <option value="CV002">Quản lý kho</option>
+                        <option value="CV002">Nhân viên</option>
+                        <option value="CV002">Trưởng khoa</option>
+                        <!-- Add more options as needed -->
+                    </select>
+    
+                    <button type="button" onclick="updateUser12()">Cập nhật</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="modal" id="addModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('addModal')">&times;</span>
+                <h2>Thêm người dùng</h2>
+                <form id="addForm">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+
+                    <label for="matKhau">Mật Khẩu:</label>
+                    <input type="password" id="matKhau" name="matKhau">
+    
+                    <label for="trangThai">Trạng Thái:</label>
+                    <select id="trangThai">
+                        <option value="Active">Hoạt động</option>
+                        <option value="Inactive">Không hoạt động</option>
+                    </select>
+    
+                    <label for="maChucVu">Chức Vụ:</label>
+                    <select id="maChucVu">
+                        <option value="CV001">Giám đốc bệnh viện</option>
+                        <option value="CV002">Quản lý kho</option>
+                        <option value="CV002">Nhân viên</option>
+                        <option value="CV002">Trưởng khoa</option>
+                        <!-- Add more options as needed -->
+                    </select>
+    
+                    <button type="button" onclick="addUser()">Thêm</button>
+                </form>
+            </div>
+        </div>
+      </main>
+      <script src="../js/updateAccount.js"></script>
+      <script src="../js/updateAccount2.js"></script>
+    </div>
+  </body>
+</html>

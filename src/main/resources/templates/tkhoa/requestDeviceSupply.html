@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supermarket Inventory</title>
+    <link rel="stylesheet" href="../css/updateAccount.css" />
+    <style>
+      .container1 {
+        width: 90%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .form-request {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        gap: 10px;
+      }
+
+      .form-group {
+        flex: 1 1 30%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group label {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .device-image {
+        width: 100px;
+        height: auto;
+        margin-top: 10px;
+      }
+
+      .btn-add {
+        flex: 1 1 100%;
+        padding: 10px 0;
+        margin-top: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .device-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      .device-table th,
+      .device-table td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+      }
+
+      .device-table th {
+        background-color: #f2f2f2;
+      }
+
+      .device-image {
+        width: 50px;
+        height: auto;
+      }
+
+      .pagination {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .page-btn {
+        padding: 10px 15px;
+        margin: 0 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .page-btn:hover {
+        background-color: #ddd;
+      }
+
+      .form-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .btn-reject,
+      .btn-submit {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .btn-reject {
+        background-color: #f44336;
+        color: #fff;
+      }
+
+      .btn-submit {
+        background-color: #4caf50;
+        color: #fff;
+      }
+
+      .update-container {
+        background-color: #fff;
+        padding: 20px 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        border: 2px solid #007bff;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-group input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-group input:disabled {
+        background-color: #f1f1f1;
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+
+      .cancel-btn {
+        padding: 10px 20px;
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .update-btn {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .cancel-btn:hover {
+        background-color: #c82333;
+      }
+
+      .update-btn:hover {
+        background-color: #218838;
+      }
+      .hinh_tron {
+        background-size: cover;
+        border-radius: 50%;
+      }
+
+      .filter-bar .add {
+        background-color: rgb(104, 231, 104);
+      }
+      .key {
+        background-color: rgb(104, 231, 104);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo">
+          <img class="hinh_tron" src="../img/logo.png" alt="Supermarket Logo" />
+          <h2>Bệnh viện Hải Châu</h2>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="../tkhoa/viewDeviceInformation.html"
+                ><i class="fa-solid fa-address-book"></i> Xem thông tin thiết
+                bị</a
+              >
+            </li>
+
+            <li>
+              <a class="key" href="../tkhoa/requestDeviceSupply.html"
+                ><i class="fa-solid fa-user-group"></i> Yêu cầu nhập thiết bị</a
+              >
+            </li>
+            <li>
+              <a href="../tkhoa/updateInformation.html"
+                ><i class="fa-solid fa-house"></i> Cập nhật thông tin tài
+                khoản</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <header>
+          <div class="search-container">
+            <input type="text" placeholder="Tìm kiếm..." />
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="user-actions">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+            </button>
+            <button class="user-btn"><i class="fas fa-user-circle"></i></button>
+          </div>
+        </header>
+        <div class="inventory-section">
+          <div class="container1">
+            <h1>YÊU CẦU CUNG CẤP THIẾT BỊ</h1>
+            <form class="form-request">
+              <div class="form-group">
+                <label for="device-code">Mã thiết bị:</label>
+                <input type="text" id="device-code" value="TB003" />
+              </div>
+              <div class="form-group">
+                <label for="device-name">Tên thiết bị:</label>
+                <input
+                  type="text"
+                  id="device-name"
+                  value="Máy trợ thở Auto CPAP Resmed Airsense 10 Autoset"
+                />
+              </div>
+              <div class="form-group">
+                <label for="device-type">Loại thiết bị:</label>
+                <select id="device-type">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="quantity">Số lượng:</label>
+                <input type="number" id="quantity" value="3" />
+              </div>
+              <div class="form-group">
+                <label for="reason">Lý do:</label>
+                <textarea id="reason" rows="2">Bệnh nhân cần sử dụng</textarea>
+              </div>
+
+              <button type="button" class="btn-add">Thêm</button>
+            </form>
+            <table class="device-table">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Mã thiết bị</th>
+                  <th>Tên thiết bị</th>
+                  <th>Loại thiết bị</th>
+                  <th>Số lượng</th>
+                  <th>Lý do cung cấp</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>TB001</td>
+                  <td>Máy trợ thở Auto CPAP Resmed Airsense 10 Autoset</td>
+                  <td>A</td>
+                  <td>1</td>
+                  <td>Bệnh nhân cần sử dụng</td>
+                  <td>
+                    <button class="btn-edit">✏️</button>
+                    <button class="btn-delete">🗑️</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>TB002</td>
+                  <td>Máy điện não EEG Neurowork 34</td>
+                  <td>B</td>
+                  <td>2</td>
+                  <td>Bệnh nhân cần sử dụng</td>
+
+                  <td>
+                    <button class="btn-edit">✏️</button>
+                    <button class="btn-delete">🗑️</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination">
+              <button class="page-btn">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <button class="page-btn">4</button>
+            </div>
+            <div class="form-buttons">
+              <button type="button" class="btn-reject">TỪ CHỐI</button>
+              <button type="button" class="btn-submit">GỬI YÊU CẦU</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="updateModal">
+          <div class="modal-content">
+            <span class="close-btn" onclick="closeModal12()">&times;</span>
+            <h2>Cập nhật người dùng</h2>
+            <form>
+              <label for="trangThai">Trạng Thái:</label>
+              <select id="trangThai">
+                <option value="Active">Hoạt động</option>
+                <option value="Inactive">Không hoạt động</option>
+              </select>
+
+              <label for="maChucVu">Chức Vụ:</label>
+              <select id="maChucVu">
+                <option value="CV001">Giám đốc bệnh viện</option>
+                <option value="CV002">Quản lý kho</option>
+                <option value="CV002">Nhân viên</option>
+                <option value="CV002">Trưởng khoa</option>
+                <!-- Add more options as needed -->
+              </select>
+
+              <button type="button" onclick="updateUser12()">Cập nhật</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="modal" id="addModal">
+          <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('addModal')"
+              >&times;</span
+            >
+            <h2>Thêm người dùng</h2>
+            <form id="addForm">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" />
+
+              <label for="matKhau">Mật Khẩu:</label>
+              <input type="password" id="matKhau" name="matKhau" />
+
+              <label for="trangThai">Trạng Thái:</label>
+              <select id="trangThai">
+                <option value="Active">Hoạt động</option>
+                <option value="Inactive">Không hoạt động</option>
+              </select>
+
+              <label for="maChucVu">Chức Vụ:</label>
+              <select id="maChucVu">
+                <option value="CV001">Giám đốc bệnh viện</option>
+                <option value="CV002">Quản lý kho</option>
+                <option value="CV002">Nhân viên</option>
+                <option value="CV002">Trưởng khoa</option>
+                <!-- Add more options as needed -->
+              </select>
+
+              <button type="button" onclick="addUser()">Thêm</button>
+            </form>
+          </div>
+        </div>
+      </main>
+      <script src="../js/updateAccount.js"></script>
+      <script src="../js/updateAccount2.js"></script>
+    </div>
+  </body>
+</html>
